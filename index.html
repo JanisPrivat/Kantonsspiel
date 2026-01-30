@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kantonspiel – Autokennzeichen-Challenge</title>
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">CH</div>
+        <div>
+          <h1>Kantonsspiel</h1>
+          <p class="subtitle">Don't forget to give bubai a kissie (he likes kissies)</p>
+        </div>
+      </div>
+
+      <div class="stats" aria-live="polite">
+        <div class="stat">
+          <div class="stat-label">Fortschritt</div>
+          <div class="stat-value"><span id="doneCount">0</span>/26</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Noch offen</div>
+          <div class="stat-value"><span id="leftCount">26</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-wrap" aria-hidden="true">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-ghost" id="btnSelectAll" type="button" title="Alle abhaken (Debug / Spass)">
+        Alles markieren
+      </button>
+      <button class="btn btn-ghost" id="btnReset" type="button">
+        Reset
+      </button>
+    </div>
+  </header>
+
+<section class="card">
+  <div class="card-head">
+    <h2>Alle Kantone</h2>
+    <p class="hint">Eifach ufs Wappe drufklicke, wenns an uns verbi fahrt</p>
+  </div>
+
+  <!-- Route + Export -->
+  <div class="route">
+    <div class="field">
+      <label for="startInput">Startpunkt</label>
+      <input id="startInput" type="text" placeholder="z.B. Basel" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label for="endInput">Endpunkt</label>
+      <input id="endInput" type="text" placeholder="z.B. Zuerich" autocomplete="off" />
+    </div>
+
+    <div class="route-actions">
+      <button class="btn" id="btnMail" type="button">Resultat per Mail senden</button>
+      <button class="btn btn-ghost" id="btnCopy" type="button">Text kopieren</button>
+    </div>
+
+    <p class="tiny">
+      Mail wird ueber deine Standard-Mail-App erstellt (mailto:). Route & Auswahl bleiben gespeichert.
+    </p>
+  </div>
+
+  <div id="grid" class="grid" role="list"></div>
+</section>
+
+
+      
+
+      <div id="grid" class="grid" role="list"></div>
+    </section>
+  </main>
+
+  <!-- Finish Modal -->
+  <dialog id="finishDialog" class="finish">
+    <div class="finish-inner">
+      <div class="finish-badge" aria-hidden="true">🏁</div>
+      <h3>OMG! MIR HEND ALLI KANTÖÖN GSEH LETS GOOOO!!!</h3>
+      <p class="finish-text">
+        WE DID IT!!!
+      </p>
+
+      <div class="finish-actions">
+        <button class="btn" id="btnCloseFinish" type="button">Nice</button>
+        <button class="btn btn-ghost" id="btnNewRun" type="button">Neue Runde</button>
+      </div>
+    </div>
+  </dialog>
+
+  <footer class="app-footer">
+    <p>
+      Spielstand wird lokal gspeicheret (localStorage) – nix Login, nix Cloud.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
